@@ -328,6 +328,8 @@ li .cd-video {
     border-bottom: 15px solid #FFA800;
     position: relative;
     padding-bottom: 56.25%; /* 16:9 */
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 .cd-video-carousel div {
