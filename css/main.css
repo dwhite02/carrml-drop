@@ -1,0 +1,599 @@
+/*  -----------------
+    BASE STYLES
+---------------------  */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;300;400;500;700;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+html,
+body {
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 1em;
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    font-weight: 900 !important;
+    font-size: 50px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body.active {
+    overflow: hidden;
+}
+
+
+main {
+    flex: 1;
+} 
+
+footer {
+    background: #000;
+}
+
+section {
+    scroll-behavior: smooth;
+}
+
+section:nth-child(3) {
+    background: linear-gradient(-90deg, rgba(255,255,255,1) 50%, rgba(0,0,0,1) 50%);
+}
+
+li .cd-video {
+    height: 300px;
+}
+
+/*  -----------------
+    CLASS STYLES
+---------------------  */
+
+/* ------- All -------- */
+.active {
+    transition-property: transform;
+    transition-timing-function: ease-in-out;
+}
+
+
+.cd-banner {
+    box-sizing: border-box;
+    background-color: #FFA800;
+    color: #fff;
+    
+    box-shadow: -5px 8px 12px rgba(0,0,0,.25);
+    padding-top: 8%;
+    padding-bottom: 8%;
+    position: absolute;
+    content: "";
+    top: 50px;
+    right: 2%;
+    z-index: 1;
+}
+    @media (min-width: 768px) {
+        .cd-banner {
+            top: 150px;
+            width: 425px;
+        }
+    }
+
+.cd-banner h2 {
+    font-size: 1em;
+    font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif; 
+    font-weight: 500;
+    position:relative;
+}
+    @media (min-width: 768px) {
+        .cd-banner h2{
+            font-size: 50px;
+        }
+    }
+
+.cd-banner h2:after {
+    content:""; 
+    display:block; 
+    position:absolute; 
+    left:0; 
+    bottom:0; 
+    width:0%; 
+    height:10px; 
+    background-color:#fff; 
+    transition: all .75s;
+}
+
+.cd-banner h2:hover:after {
+    width: 100%;
+}
+
+.cd-button {
+    padding: 10px 24px;
+    border-radius: 50px;
+    border: 3px solid #fff;
+    font-weight: 400;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    transition: color .55s;
+}
+
+.cd-button:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: white;
+    height: 350px;
+    width: 0px;
+    border-radius: 50%;
+    top: 0;
+    left: -200%;
+    transition: all .75s ease-in-out;
+}
+
+.cd-button:hover:before {
+    width: 200%;
+    top: -90px;
+    left: -30px;
+}
+
+.cd-button:hover {
+    color: #000;
+}
+
+.cd-button.hero {
+    font-size: 2vw;
+    display: inline-block;
+    margin-top: 10px;
+    font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif; 
+    
+}
+
+.cd-content-info.cd-music {
+    position: relative;
+}
+
+.cd-footer-content {
+    color: #fff;
+}
+
+.cd-hero {
+    color: #fff;
+    box-sizing: border-box;
+    background-image:url("../images/hero-header.svg");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+    transition: all ease-in;
+    min-height: 300px;
+    text-align: center;
+    z-index: -12;
+}
+    @media (min-width: 768px) {
+        .cd-hero{
+            height: 850px;
+            text-align: left;
+        }
+    }
+    
+.cd-hero-sub  {
+    color: #FFA800;
+    min-height: 300px;
+}
+
+.cd-hero-sub .cd-hero-title   {
+   margin-top: 40%;
+   position: relative;
+   text-shadow: 0 3px #000, 3px 3px #000, -3px 3px #000;
+   z-index: 10;
+}
+
+.cd-hero-sub .cd-hero-title span  {
+    top: 44%;
+    left: -11%;
+    color: white;
+    position: absolute;
+    z-index: -1;
+    font-size: 4.5vw;
+}
+
+.cd-hero-title {
+    font-size: 6vw;
+    text-shadow: -5px 8px 12px rgba(0,0,0,.25);
+}
+
+.cd-icon {
+   fill: white;
+   height: 25px;
+   box-sizing: content-box;
+   transition: all .5s;
+}
+
+.cd-icon:hover, 
+.cd-icon:focus,
+.cd-icon:active {
+   fill: #FFA800;
+   transform: scale(1.25)
+}
+
+    @media (min-width: 768px) {
+        .cd-icon {
+            fill: black ;
+            height: 50px;
+            box-sizing: content-box
+        }
+    }
+
+.cd-image {
+    position: relative;
+    z-index: 0;
+    max-height: 800px;
+}
+
+.cd-image-container,
+.cd-video-container {
+    
+    height: 0;
+    cursor: pointer;
+    transition: all .5s;
+    width: 100%;
+}
+
+.cd-image-container::before,
+.cd-image-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: all .5s;   
+}
+
+.cd-image-container::after {
+    margin: auto;
+    width: 50%;
+    height: 50%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("../images/play-outline.svg");
+    transition: all .5s;
+    transform: scale(1);
+}
+
+.cd-image-container:hover::after {
+    animation: svgFade .6s ease-in-out forwards;
+}
+
+@keyframes svgFade {
+    0% {background-image: url("../images/play-outline.svg"); }
+    24% {background-image: url("../images/play-outline.svg"); opacity: 0;}
+    25% {background-image: url("../images/play-fill.svg"); opacity: 0;}
+    100% {background-image: url("../images/play-fill.svg"); opacity: 1;}
+}
+
+.cd-image-container:hover::before {
+   background-color: rgba(0,0,0,.85);  
+}
+ 
+.cd-main-footer {
+    position: relative;
+}
+
+.cd-main-header {
+    width: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 100;
+}
+
+@media (min-width: 768px) {
+    .cd-music-container {
+        margin-top: 25%;
+    }
+} 
+
+.cd-social-icons {
+    display: inline-block;
+}
+    @media (min-width: 768px) {
+        .cd-social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            bottom: 0;
+            right:0;
+            width: 159px;
+            height: 120px;
+            background-color: #fff;
+            border-top: 2px solid #000;
+            border-left: 2px solid #000;
+            box-shadow: -10px 14px rgba(255,168,0,.90);
+        }
+    }
+
+.cd-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.cd-video-box {
+    border-bottom: 15px solid #FFA800;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+}
+
+.cd-video-carousel div {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+/* ------- Music -------- */
+
+.cd-feat-music {
+    box-sizing: border-box;
+    padding: 20px;
+    scroll-behavior: smooth;
+}
+
+.cd-feat-music button {
+    transition: all .4s;
+}
+
+.cd-feat-music button:hover {
+    letter-spacing: 2px;
+    background-color: #FFA800;
+
+}
+
+.cd-feat-music img {
+    box-shadow:0 0 20px rgba(0,0,0,.25);
+}
+    @media (min-width: 768px) {
+        .cd-feat-music {
+            position: absolute;
+            top: 30%;
+            left: 0;
+        }
+    }
+
+.cd-image-container-music {
+    cursor: pointer;
+    position: relative;
+}
+
+.cd-image-container-music img {
+    transition: all .4s;
+}
+
+.cd-image-container-music img:hover {
+    position: relative;
+    z-index: 100;
+    transform: scale(1.5);
+    box-shadow:0 0 50px rgba(0,0,0,.85);
+}
+
+/* ------- Videos -------- */
+
+.arrow:focus {
+    outline: none;
+}
+
+.arrow-r,
+.arrow-l {
+  font-size: 30px;
+  position: absolute;
+  top: 45%;
+  color: white;
+  background: #ffa800;
+  border-radius: 100%;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5)
+}
+
+.arrow-l {
+  left: -22px;
+}
+
+.arrow-r {
+  right: -30px;;
+}
+
+.cd-carousel-container {
+  position: relative;
+}
+
+.cd-video-carousel {
+  overflow: hidden;
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+.cd-video-carousel li div {
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%; 
+  width: 70vw ;
+}
+
+.cd-video-carousel li iframe{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#wrapper {
+  background-color: black;
+  overflow: hidden;
+}
+    @media (min-width: 768px) {
+        #wrapper{
+            height: 800px;
+        }
+    }
+
+/*  ---------------------
+    COMPONENT STYLES
+-------------------------  */
+
+/* ------- Hamburger Icon -------- */
+
+    .nav-toggle .nav-icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        z-index: 1000 ;
+    }
+
+    .nav-toggle {
+        position: relative;
+        border: 5px solid rgba(255, 255, 255, 0);
+        cursor: pointer;
+        height: 3em;
+        width: 3em;
+        z-index: 100;
+        
+    }
+
+    .nav-toggle.active {
+        border: 4px solid rgba(255, 255, 255, 100);
+        border-radius: 7px;
+    }
+    
+    .nav-toggle,
+    .nav-toggle .nav-icon,
+    .nav-toggle .nav-icon:before,
+    .nav-toggle .nav-icon:after {
+        transition: .3s ease-in-out;
+    }
+
+    .nav-toggle:hover .nav-icon {
+        transform: scale(0.85) rotate(0deg);
+    }
+
+    .nav-toggle .nav-icon {
+        height: 2px;
+        width: 28px;
+        background: #fff;
+        
+        border-radius: 8px;
+    }
+    .nav-toggle .nav-icon::before, .nav-toggle .nav-icon::after {
+        content: "";
+        background: #fff;
+        border-radius: 8px;
+        height: 2px;
+        width: 100%;
+        position: absolute;
+    }
+    .nav-toggle .nav-icon::before {
+        top: -0.5571428571em;
+    }
+    .nav-toggle .nav-icon::after {
+        top: 0.5571428571em;
+    }
+    .nav-toggle .nav-icon.active {
+        background-color: transparent;
+        transform: scale(0.85) rotate(270deg);
+    }
+    .nav-toggle .nav-icon.active::before {
+        top: 0;
+        height: 5px;
+        transform: scale(0.75) rotate(45deg);
+    }
+    .nav-toggle .nav-icon.active::after {
+        top: 0;
+        height: 5px;
+        transform: scale(0.75) rotate(-45deg);
+    }
+
+/* ------- FullScreen Nav -------- */
+
+    /* The Overlay (background) */
+    .overlay {
+        /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 0%;
+        position: fixed; /* Stay in place */
+        z-index: 10; /* Sit on top */
+        left: 0;
+        top: 0;
+        background-color: #FFA800;
+        overflow: hidden !important;
+        transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+    }
+
+    /* Position the content inside the overlay */
+    .overlay-content {
+        position: relative;
+        margin: auto;
+        width: 100%; /* 100% width */
+        text-align: center; /* Centered text/links */
+    }
+
+    /* The navigation links inside the overlay */
+    .cd-nav-link {
+        padding: 8px;
+        font-family: 'Roboto', Helvetica, Arial, sans-serif;
+        font-weight: 900 !important;
+        font-size: 60px;
+        color: #000;
+        text-shadow: -12px 10px #fff;
+        display: block; /* Display block instead of inline */
+        transition: 0.3s; /* Transition effects on hover (color) */
+    }
+
+    .cd-nav-link:hover {
+        animation-name: shake;
+        animation-duration: .55s;
+        color: #fff;
+        text-shadow:-12px 10px #000;
+    }
+
+        @media (min-width: 768px) {
+            .cd-nav-link {
+                font-size: 7vw;    
+            }
+        }
+
+    @media (min-width: 768px) {
+        .cd-nav-item {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 450px;
+            border-right: 15px solid #000;
+        }
+
+        .cd-nav-item:nth-child(3) {
+            border-right: 0;
+        }
+    }
+
+    @keyframes shake {
+        0%   {transform: rotate(0deg);}
+        25%  {transform: rotate(-45deg);}
+        60%  {transform: rotate(45deg);}
+        90% {transform: rotate(0deg);}
+        100% {transform: rotate(5deg);}
+    }
+
+    .nav-open {
+        width: 100%;
+    }

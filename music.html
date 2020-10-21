@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Carrml Drop | Music</title>
+    <meta name="description" content="CARRML DROP">
+    <meta name="Keywords" content="carrml drop, music, r&b">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="images/fav-icon.png" type="image/png" sizes="16x16">
+    <link rel="stylesheet" href="./css/main.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.8.10/tailwind.min.css" rel="stylesheet">
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="">
+    <meta name="twitter:site" content="">
+    <meta name="twitter:title" content="Carrml Drop | Music">
+    <meta name="twitter:description" content="">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="Carrml Drop | Music" />
+    <meta property="og:type" content="music" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:tag" content="" />
+    <meta property="og:description" content="CARRML DROP" />
+    <meta property="og:site_name" content="carrmldropp" />
+</head>
+
+<body>
+    <header class="cd-main-header">
+        <div class="cd-navigation flex items-center justify-between p-5 ">
+            <div class="cd-navigation-logo">
+                <a href="index.html">
+                    <img class="h-12" src="images/site-logo.png" alt="CARRML DROPP">
+                </a>
+            </div>
+            <div class="cd-navigation-icon nav-toggle">
+                <div class="nav-icon"></div>
+            </div>
+        </div>
+        <div id="myNav" class="overlay">
+            <!-- Overlay content -->
+            <div class="overlay-content container mx-auto flex flex-col md:flex-row justify-around">
+                <div class="cd-nav-item">
+                    <a class="cd-nav-link" href="index.html">HOME</a>
+                </div>
+                <div class="cd-nav-item">
+                    <a class="cd-nav-link" href="music.html">MUSIC</a>
+                </div>
+                <div class="cd-nav-item">
+                    <a class="cd-nav-link" href="video.html">VIDEOS</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main id="cd-music-content" class="cd-main-content">
+        <section class="cd-hero-sub flex md:flex-row flex-col">
+            <div class="cd-col flex items-end p-16 justify-center md:justify-start flex-1" style="background: #000;">
+                <h2 class="cd-hero-title"> Music <span>Music</span></h2>
+            </div>
+            <div class="cd-col p-16 flex-1 text-black relative" style="background: #ffa800;"> 
+                <div id="feat" v-for="feat in featList.slice(0,1)" class="cd-feat-music flex flex-col items-center">
+                    <div class=" text-base md:text-2xl text-center">
+                        <p class=" border-b-2 border-black"> {{feat.type.toUpperCase()}} </p>
+                        <p class="font-black"> {{feat.title.toUpperCase()}} </p>
+                    </div>
+                    <img v-bind:src="feat.image" class="mt-6 w-3/5 ">
+                    <button class="bg-black px-8 py-2 mt-6 text-white" type="button">
+                        <a class=" text-base md:text-2xl flex items-center" v-bind:href="feat.link" target="_blank"> 
+                            <svg class="h-6 pr-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="35.079"
+                            viewBox="0 0 30 35.079">
+                            <defs>
+                                <path id="path-1" fill-rule="evenodd"
+                                    d="M5.3025948 1.71253116C2.37417488 0 0 1.40292557 0 4.843549v25.39028524c0 3.444059 2.37417488 4.84516575 5.3025948 3.13425133l21.76799413-12.72717427C30 18.92777387 30 16.15223659 27.07058893 14.43950334L5.3025948 1.71253116z" />
+                                <mask id="mask-2" x="0" y="0" maskContentUnits="userSpaceOnUse" maskUnits="userSpaceOnUse">
+                                    <rect width="30" height="35.079" x="0" y="0" fill="black" />
+                                    <use fill="white" xlink:href="#path-1" />
+                                </mask>
+                            </defs>
+                            <use fill-opacity="0" stroke="rgb(255,255,255)" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="6"
+                                mask="url(#mask-2)" xlink:href="#path-1" />
+                        </svg>
+                        Listen </a>
+                    </button>
+                </div>
+                
+            </div>
+        </section>
+        <section class="p-8">
+            <div class="container flex mx-auto flex-wrap cd-music-container">
+                <div v-on:click="swapSpot(project)" v-for="project in projects.slice(1)" 
+                class="cd-image-container-music w-64 lg:w-full md:max-w-sm p-4 mx-auto">
+                    <a href="#feat">
+                        <img class="" v-bind:src="project.image">
+                    </a>
+                </div>
+            </div>
+        </section>  
+    </main>
+    <footer class="cd-main-footer  p-5">
+        <div class="cd-footer-content container mx-auto flex flex-col items-center">
+            <div class="cd-contact-info flex items-center">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope-fill" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z" />
+                </svg>
+                <p class="px-1">
+                    <span class="font-medium">Email:</span> carrmldropp@gmail.com
+                </p>
+            </div>
+            <div>
+                <p class="font-black text-sm">
+                    © 2020 CARRML RECORDS
+                </p>
+            </div>
+        </div>
+        <div class="cd-footer-secondary container mx-auto flex justify-center">
+            <div class="cd-footer-container">
+                <div class="cd-social-icons flex  ">
+                    <a href="https://www.youtube.com/channel/UC7LrTE0RBMwoU8e318W8biw" target="_blank">
+                        <svg class="cd-icon p-2" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m224.113281 303.960938 83.273438-47.960938-83.273438-47.960938zm0 0" />
+                            <path
+                                d="m475.074219 0h-438.148438c-20.394531 0-36.925781 16.53125-36.925781 36.925781v438.148438c0 20.394531 16.53125 36.925781 36.925781 36.925781h438.148438c20.394531 0 36.925781-16.53125 36.925781-36.925781v-438.148438c0-20.394531-16.53125-36.925781-36.925781-36.925781zm-59.113281 256.261719s0 51.917969-6.585938 76.953125c-3.691406 13.703125-14.496094 24.507812-28.199219 28.195312-25.035156 6.589844-125.175781 6.589844-125.175781 6.589844s-99.878906 0-125.175781-6.851562c-13.703125-3.6875-24.507813-14.496094-28.199219-28.199219-6.589844-24.769531-6.589844-76.949219-6.589844-76.949219s0-51.914062 6.589844-76.949219c3.6875-13.703125 14.757812-24.773437 28.199219-28.460937 25.035156-6.589844 125.175781-6.589844 125.175781-6.589844s100.140625 0 125.175781 6.851562c13.703125 3.6875 24.507813 14.496094 28.199219 28.199219 6.851562 25.035157 6.585938 77.210938 6.585938 77.210938zm0 0" />
+                        </svg>
+                    </a>
+                    <a href="https://soundcloud.com/carrml_drop" target="_blank">
+                        <svg class="cd-icon p-2" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 94 94"
+                            style="enable-background:new 0 0 94 94;" xml:space="preserve">
+                            <path
+                                d="M89,0H5C2.238,0,0,2.239,0,5v84c0,2.761,2.238,5,5,5h84c2.762,0,5-2.239,5-5V5C94,2.239,91.762,0,89,0z M9.2,59.217
+                                                            		c-0.024,0.18-0.153,0.303-0.311,0.303c-0.162,0-0.292-0.125-0.313-0.305l-0.57-4.257l0.57-4.332
+                                                            		c0.021-0.181,0.15-0.306,0.313-0.306c0.157,0,0.286,0.125,0.311,0.305l0.676,4.333L9.2,59.217z M12.097,61.809
+                                                            		c-0.025,0.186-0.159,0.315-0.323,0.315c-0.166,0-0.304-0.132-0.325-0.315l-0.767-6.849l0.767-7.003
+                                                            		c0.021-0.184,0.159-0.314,0.325-0.314c0.164,0,0.298,0.129,0.323,0.314l0.873,7.003L12.097,61.809z M15.227,62.967
+                                                            		c-0.024,0.223-0.188,0.383-0.39,0.383c-0.206,0-0.371-0.16-0.392-0.385l-0.728-8.005l0.728-8.31
+                                                            		c0.021-0.222,0.186-0.383,0.392-0.383c0.201,0,0.365,0.161,0.39,0.383l0.826,8.31L15.227,62.967z M18.383,63.221
+                                                            		c-0.021,0.256-0.219,0.449-0.456,0.449c-0.243,0-0.44-0.193-0.459-0.449l-0.688-8.26l0.688-8.539
+                                                            		c0.019-0.256,0.216-0.449,0.459-0.449c0.237,0,0.435,0.193,0.456,0.448l0.781,8.54L18.383,63.221z M21.563,63.29
+                                                            		c-0.019,0.293-0.245,0.517-0.522,0.517c-0.281,0-0.507-0.224-0.524-0.517l-0.65-8.328l0.65-7.92
+                                                            		c0.018-0.295,0.243-0.517,0.524-0.517c0.277,0,0.504,0.222,0.522,0.514l0.737,7.923L21.563,63.29z M24.768,63.293v-0.002
+                                                            		c-0.018,0.327-0.277,0.584-0.589,0.584c-0.316,0-0.574-0.257-0.59-0.582l-0.61-8.328c0,0,0.61-12.885,0.61-12.886
+                                                            		c0.016-0.328,0.273-0.584,0.59-0.584c0.312,0,0.571,0.257,0.589,0.583l0.689,12.887L24.768,63.293z M27.949,63.287v-0.004
+                                                            		c-0.016,0.365-0.305,0.65-0.656,0.65c-0.354,0-0.641-0.285-0.656-0.647l-0.57-8.276c0,0,0.568-15.832,0.568-15.833
+                                                            		c0.018-0.365,0.305-0.651,0.658-0.651c0.352,0,0.641,0.286,0.656,0.651l0.645,15.833L27.949,63.287z M31.254,63.161v-0.005
+                                                            		c-0.016,0.402-0.334,0.717-0.723,0.717c-0.393,0-0.709-0.314-0.725-0.714l-0.529-8.19c0,0,0.529-17.154,0.529-17.155
+                                                            		c0.016-0.402,0.332-0.718,0.725-0.718c0.389,0,0.707,0.315,0.723,0.718l0.6,17.155L31.254,63.161z M34.533,63.105
+                                                            		c-0.012,0.438-0.359,0.783-0.787,0.783c-0.432,0-0.779-0.345-0.791-0.781l-0.492-8.139l0.492-17.732
+                                                            		c0.012-0.44,0.359-0.786,0.791-0.786c0.428,0,0.775,0.345,0.787,0.786l0.555,17.733L34.533,63.105z M37.84,63.035v-0.006
+                                                            		c-0.012,0.477-0.389,0.853-0.855,0.853c-0.469,0-0.846-0.376-0.855-0.849l-0.453-8.062l0.453-17.279
+                                                            		c0.01-0.478,0.387-0.852,0.855-0.852c0.467,0,0.844,0.373,0.855,0.851l0.51,17.282L37.84,63.035z M41.172,62.984v-0.008
+                                                            		c-0.01,0.517-0.416,0.92-0.922,0.92c-0.508,0-0.914-0.403-0.926-0.914l-0.41-8.012l0.41-16.647c0.012-0.516,0.418-0.92,0.926-0.92
+                                                            		c0.506,0,0.912,0.404,0.922,0.918l0.463,16.652L41.172,62.984z M44.57,62.141l-0.041,0.787c-0.006,0.271-0.119,0.518-0.299,0.696
+                                                            		c-0.178,0.178-0.422,0.29-0.691,0.29c-0.303,0-0.574-0.141-0.758-0.357c-0.135-0.162-0.219-0.367-0.23-0.59
+                                                            		c0-0.011-0.002-0.021-0.002-0.033c0,0-0.373-7.953-0.373-7.965l0.371-19.62l0.002-0.187c0.006-0.346,0.188-0.65,0.457-0.826
+                                                            		c0.154-0.101,0.336-0.161,0.533-0.161c0.201,0,0.391,0.063,0.547,0.168c0.262,0.178,0.438,0.478,0.443,0.817l0.416,19.812
+                                                            		L44.57,62.141z M47.871,62.818L47.871,62.818v-0.008c-0.01,0.58-0.482,1.053-1.057,1.053c-0.575,0-1.049-0.473-1.057-1.047
+                                                            		l-0.213-3.866l-0.221-3.974l0.432-21.501l0.002-0.108c0.004-0.326,0.156-0.619,0.391-0.812c0.184-0.151,0.414-0.242,0.666-0.242
+                                                            		c0.195,0,0.381,0.056,0.538,0.152c0.305,0.185,0.514,0.519,0.52,0.9l0.469,21.611L47.871,62.818z M76.402,63.885
+                                                            		c0,0-26.566,0.004-26.592,0c-0.572-0.057-1.027-0.514-1.035-1.101V32.34c0.008-0.56,0.199-0.847,0.922-1.128
+                                                            		c1.863-0.72,3.975-1.146,6.137-1.146c8.844,0,16.092,6.781,16.857,15.425c1.141-0.478,2.395-0.744,3.711-0.744
+                                                            		c5.297,0,9.59,4.294,9.59,9.592C85.992,59.639,81.699,63.885,76.402,63.885z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Add smooth scrolling to all links
+            $("a").on('click', function (event) {
+
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 200, 'linear', function () {
+
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        /* window.location.hash = hash; */
+                    });
+                } // End if
+            });
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+    <script src="src/index.js"></script>
+    <script src="src/app.js"></script>
+</body>
+</html>
